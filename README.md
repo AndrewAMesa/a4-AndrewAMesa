@@ -1,32 +1,36 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/RQyEtg8L)
-Assignment A4 - Web Component Framework
-===
+## Andrew Mesa's Web Application - Focusly
 
-Due: Monday, February 17th, by 11:59 AM.
+### Overview
+This project is a task manager with add, delete, and update functionalities. The items are sorted by priority level
+with high at the top and low at the bottom. Furthermore, when adding items ensure you include all fields. You can
+edit the description, priority level, and deadline of already created tasks.
 
-For this assignment you will re-implement Assignment A3 using React components, a style framework, MongoDB, and either
-1. the React framework, Express, and Passport GitHub authentication, or
-2. the NextJS framework with NextAuth for authentication
-   Please keep in mind that implementing authentication is challenging and can be frustrating to debug. Please start this
-   assignment early! You may deploy this project on any hosting service (Glitch, DigitalOcean, Heroku etc.).
-   However, make sure to push your final application to your assignment GitHub repo so the course staff can review the code.
+#### Instructions for Use
+1. Begin by registering an account and then logging in with that account (MUST PUT AN EMAIL, IT DOES NOT HAVE TO BE A VALID ONE).
+2. Use the nav bar to go to the task entry form.
+3. View the stored tasks on the home page.
+4. Edit or delete existing data entries through buttons on the home page.
 
-Deliverables
----
-Do the following to complete this assignment:
 
-1. Implement your project with the above requirements.
-3. Test your project to make sure that when someone goes to your main page on Glitch/Heroku/etc., it displays correctly.
-4. Ensure that your project has the proper naming scheme `a4-firstname-lastname` so we can find it.
-5. Push to your assignment repository and modify the README to the specifications below. Be sure to add *all* project files.
+### Link to Deployment
+Andrew Mesa: https://a4-andrew-a-mesa.vercel.app/
 
-Sample Readme (delete the above when you're ready to submit, and modify the below so with your links and descriptions)
 ---
 
-## Your Web Application Title
+## Changes from Assignment 3 
 
-your hosting link e.g. http://a4-wilsonwong.glitch.me
+### **Integrated Previous Application into a Next.js Project**
+- Migrated the existing application into a Next.js framework.
+- Utilized Next.js libraries for backend logic and frontend visuals.
+- Refactored components and APIs to align with Next.js best practices.
 
-Include a very brief summary of your project here and what you changed / added to assignment #3.
+### **Utilized NextAuth with MongoDB for Authorization**
+- Implemented authentication using NextAuth.
+- Integrated MongoDB as the primary database for storing user credentials and session tokens.
+- Configured authentication providers and custom JWT handling.
 
-Unlike previous assignments, this assignment will be solely graded on whether or not you successfully complete it. Partial credit will be generously given.
+### **Hosted Application on Vercel for Better Development**
+- Deployed the Next.js application on Vercel.
+- Utilized Vercel’s preview deployments to test features before merging into production.
+
+
