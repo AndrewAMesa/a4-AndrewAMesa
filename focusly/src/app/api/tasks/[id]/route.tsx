@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import {Collection, Db, MongoClient, ObjectId} from "mongodb";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { authOptions } from "../../../../../lib/auth";
 import { getServerSession } from "next-auth";
 
 const client = new MongoClient(process.env.MONGO_URI!);
@@ -17,7 +17,7 @@ async function initializeDB() {
     }
 }
 
-export async function PUT(req: Request, cont: { params: { id: string } }) {
+export async function PUT(req: Request, context: { params: { id: string } }) {
     await initializeDB();
 
     const session = await getServerSession(authOptions);
@@ -25,7 +25,7 @@ export async function PUT(req: Request, cont: { params: { id: string } }) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { id } = await cont.params;
+    const { id } = context.params;
 
     const { task, priority, deadline_date } = await req.json();
 
@@ -47,7 +47,7 @@ export async function PUT(req: Request, cont: { params: { id: string } }) {
     return NextResponse.json({ message: "Task updated successfully!" });
 }
 
-export async function DELETE(req: Request, cont: { params: { id: string } }) {
+export async function DELETE(req: Request, context: { params: { id: string } }) {
     await initializeDB();
 
     const session = await getServerSession(authOptions);
@@ -55,7 +55,7 @@ export async function DELETE(req: Request, cont: { params: { id: string } }) {
         return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { id } = await cont.params;
+    const { id } = context.params;
 
     const result = await tasksCollection.deleteOne({ _id: new ObjectId(id) });
 

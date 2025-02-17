@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fd34090-4123-4541-91fd-864d4e38f59b" name="Changes" comment="" />
+    <list default="true" id="4fd34090-4123-4541-91fd-864d4e38f59b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/focusly/lib/auth.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/next.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/api/auth/[...nextauth]/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/api/auth/[...nextauth]/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/api/tasks/[id]/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/api/tasks/[id]/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/api/tasks/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/api/tasks/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/update_task/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/update_task/page.tsx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,10 +79,10 @@
       <recent name="C:\Users\aames\a3-AndrewAMesa\public\CSS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly" />
       <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\api\auth\[...nextauth]" />
       <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\api\auth\nextauth" />
       <recent name="C:\Users\aames\a4-AndrewAMesa" />
-      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly" />
       <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\add_task" />
     </key>
   </component>
@@ -106,7 +115,7 @@
       <workItem from="1739731817842" duration="5000" />
       <workItem from="1739731870298" duration="4000" />
       <workItem from="1739734570805" duration="5000" />
-      <workItem from="1739803522705" duration="12926000" />
+      <workItem from="1739803522705" duration="15781000" />
     </task>
     <servers />
   </component>

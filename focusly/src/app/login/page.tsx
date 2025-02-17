@@ -1,17 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 
-export default function LoginPage() {
+function Login() {
     const searchParams = useSearchParams();
     const [email, setEmail] = useState(searchParams.get("email") || "");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const router = useRouter();
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -66,5 +65,13 @@ export default function LoginPage() {
                 </p>
             </div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <Login />
+        </Suspense>
     );
 }
