@@ -1,36 +1,62 @@
 import { NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
+import {Collection, Db, MongoClient, ObjectId} from "mongodb";
+import { authOptions } from "../../auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-const dbconnect = new MongoClient(process.env.MONGO_URI!);
-let tasksCollection: any = null;
+const client = new MongoClient(process.env.MONGO_URI!);
+const clientPromise = client.connect();
 
-async function connectDB() {
-    if (!tasksCollection) {
-        await dbconnect.connect();
-        const db = dbconnect.db("cs4241");
+let db: Db;
+let tasksCollection: Collection;
+
+async function initializeDB() {
+    if (!db) {
+        await clientPromise;
+        db = client.db();
         tasksCollection = db.collection("tasks");
     }
 }
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
-    await connectDB();
-    const { id } = params;
+export async function PUT(req: Request, cont: { params: { id: string } }) {
+    await initializeDB();
+
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id } = await cont.params;
+
     const { task, priority, deadline_date } = await req.json();
 
     const existingTask = await tasksCollection.findOne({ _id: new ObjectId(id) });
-    if (!existingTask) return NextResponse.json({ error: "Task not found" }, { status: 404 });
+    if (!existingTask) {
+        return NextResponse.json({ error: "Task not found" }, { status: 404 });
+    }
 
     const deadlineDate = new Date(deadline_date);
-    const plannedDuration = Math.ceil((deadlineDate.getTime() - new Date(existingTask.creation_date).getTime()) / (1000 * 60 * 60 * 24));
+    const plannedDuration = Math.ceil(
+        (deadlineDate.getTime() - new Date(existingTask.creation_date).getTime()) / (1000 * 60 * 60 * 24)
+    );
 
-    await tasksCollection.updateOne({ _id: new ObjectId(id) }, { $set: { task, priority, deadline_date: deadlineDate, planned_duration: plannedDuration } });
+    await tasksCollection.updateOne(
+        { _id: new ObjectId(id) },
+        { $set: { task, priority, deadline_date: deadlineDate, planned_duration: plannedDuration } }
+    );
 
     return NextResponse.json({ message: "Task updated successfully!" });
 }
 
-export async function DELETE(req: Request, { params }: { params: { id: string } }) {
-    await connectDB();
-    const { id } = params;
+export async function DELETE(req: Request, cont: { params: { id: string } }) {
+    await initializeDB();
+
+    const session = await getServerSession(authOptions);
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { id } = await cont.params;
+
     const result = await tasksCollection.deleteOne({ _id: new ObjectId(id) });
 
     if (result.deletedCount === 0) {

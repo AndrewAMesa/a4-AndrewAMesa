@@ -1,35 +1,41 @@
+import { MongoClient } from "mongodb";
 import { NextResponse } from "next/server";
-import { MongoClient, ObjectId } from "mongodb";
+import { authOptions } from "../auth/[...nextauth]/route";
+import { getServerSession } from "next-auth";
 
-const dbconnect = new MongoClient(process.env.MONGO_URI!);
-let tasksCollection: any = null;
+const client = new MongoClient(process.env.MONGO_URI!);
+const clientPromise = client.connect();
 
-// Ensure the DB connection is established once
-async function connectDB() {
-    if (!tasksCollection) {
-        await dbconnect.connect();
-        const db = dbconnect.db("cs4241");
-        tasksCollection = db.collection("tasks");
+export async function GET() {
+    await clientPromise;
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
-}
 
-export async function GET(req: Request) {
-    await connectDB();
-    const username = req.headers.get("x-username");
-    const userTasks = await tasksCollection.find({ username }).toArray();
-    return NextResponse.json(userTasks);
+    const db = (await clientPromise).db();
+    const tasks = await db.collection("tasks").find({ email: session.user?.email || "" }).toArray();
+
+    return NextResponse.json(tasks);
 }
 
 export async function POST(req: Request) {
-    await connectDB();
+    await clientPromise;
+    const session = await getServerSession(authOptions);
+
+    if (!session) {
+        return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
     const { task, priority, deadline_date } = await req.json();
-    const username = req.headers.get("x-username");
+    const email = session.user?.email || "";
     const creationDate = new Date();
     const deadlineDate = new Date(deadline_date);
     const plannedDuration = Math.ceil((deadlineDate.getTime() - creationDate.getTime()) / (1000 * 60 * 60 * 24));
 
     const newTask = {
-        username,
+        email,
         task,
         priority,
         creation_date: creationDate,
@@ -37,6 +43,6 @@ export async function POST(req: Request) {
         planned_duration: plannedDuration,
     };
 
-    const result = await tasksCollection.insertOne(newTask);
+    const result = await (await clientPromise).db().collection("tasks").insertOne(newTask);
     return NextResponse.json({ message: "Task added successfully!", insertedId: result.insertedId });
 }

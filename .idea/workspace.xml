@@ -5,7 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4fd34090-4123-4541-91fd-864d4e38f59b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/focusly/src/app/api/auth/[...nextauth]/route.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/focusly/src/app/api/auth/register/route.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/focusly/src/app/clientsessionwrapper.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/focusly/src/app/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/focusly/src/app/register/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/api/tasks/[id]/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/api/tasks/[id]/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/api/tasks/route.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/api/tasks/route.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/focusly/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/focusly/src/app/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,10 +64,10 @@
     &quot;Node.js.app.js.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;iteration__1&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.11.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.13.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/aames/a4-AndrewAMesa/focusly&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/aames/creative-exercise-AndrewAMesa&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -72,11 +84,11 @@
       <recent name="C:\Users\aames\a3-AndrewAMesa\public\CSS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly" />
+      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\api\auth\[...nextauth]" />
+      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\api\auth\nextauth" />
       <recent name="C:\Users\aames\a4-AndrewAMesa" />
+      <recent name="C:\Users\aames\a4-AndrewAMesa\focusly" />
       <recent name="C:\Users\aames\a4-AndrewAMesa\focusly\src\app\add_task" />
-      <recent name="C:\Users\aames\a3-AndrewAMesa\api" />
-      <recent name="C:\Users\aames\a3-AndrewAMesa" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -101,7 +113,14 @@
       <workItem from="1739237732658" duration="2430000" />
       <workItem from="1739240499988" duration="12273000" />
       <workItem from="1739389005049" duration="9676000" />
-      <workItem from="1739402422896" duration="1168000" />
+      <workItem from="1739402422896" duration="5323000" />
+      <workItem from="1739731570323" duration="118000" />
+      <workItem from="1739731737199" duration="43000" />
+      <workItem from="1739731785012" duration="5000" />
+      <workItem from="1739731817842" duration="5000" />
+      <workItem from="1739731870298" duration="4000" />
+      <workItem from="1739734570805" duration="5000" />
+      <workItem from="1739803522705" duration="12608000" />
     </task>
     <servers />
   </component>
