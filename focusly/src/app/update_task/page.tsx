@@ -10,9 +10,11 @@ function UpdateTask() {
     const [deadline, setDeadline] = useState("");
     const router = useRouter();
     const [taskId, setTaskId] = useState<string | null>(null);
-
     const searchParams = useSearchParams();
-    setTaskId(searchParams.get("taskId"));
+
+    useEffect(() => {
+        setTaskId(searchParams.get("taskId"));
+    }, [searchParams]);
 
     useEffect(() => {
         const fetchTaskDetails = async () => {
